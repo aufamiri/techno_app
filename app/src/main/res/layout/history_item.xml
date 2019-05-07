@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_marginHorizontal="5dp"
+    android:layout_marginVertical="5dp"
+    app:cardElevation="0.5dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="280dp"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="5dp">
+            <TextView
+                android:id="@+id/order_text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Sayur Buah"
+                android:textSize="@dimen/place_title" />
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="10dp" />
+            <TextView
+                android:id="@+id/seller_text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Bpk. Kemangi"/>
+        </LinearLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <LinearLayout
+                android:id="@+id/button_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_gravity="center"
+                android:visibility="gone">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/completed"
+                    android:textColor="@color/colorPrimary"
+                    android:textSize="20sp"
+                    android:padding="5dp"
+                    android:gravity="center"
+                    />
+
+                <TextView
+                    android:id="@+id/date_completed_text"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="15/06/2019"
+                    android:textColor="@color/colorPrimary"
+                    android:textSize="15sp"
+                    android:padding="5dp"
+                    android:gravity="center"
+                    />
+
+            </LinearLayout>
+
+            <Button
+                android:id="@+id/konfirmasi_button"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/colorPrimary"
+                android:text="@string/confirm"
+                android:padding="5dp"
+                android:textColor="@color/white"
+                android:drawableEnd="@drawable/ic_done"
+                />
+
+        </RelativeLayout>
+
+    </LinearLayout>
+
+</androidx.cardview.widget.CardView>
