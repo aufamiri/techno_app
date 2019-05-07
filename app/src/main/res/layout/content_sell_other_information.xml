@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    android:layout_margin="16dp"
+    android:background="@drawable/bg_card"
+    android:padding="16dp"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+
+    <TextView
+        android:text="Deskripsi Produk"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="6dp" />
+
+    <EditText
+        android:gravity="start"
+        android:inputType="textMultiLine"
+        android:scrollbarStyle="insideInset"
+        android:scrollbars="vertical"
+        android:overScrollMode="always"
+        android:maxLines="10"
+        android:maxLength="200"
+        android:textColor="@color/bsBlack"
+        android:id="@+id/sell_product_desc"
+        android:background="@drawable/shape_white"
+        android:layout_width="match_parent"
+        android:layout_height="260dp"/>
+
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="6dp" />
+
+    <TextView
+        android:textAlignment="textEnd"
+        android:text="*Maksimal 100 karakter"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <TextView
+        android:text="Gambar Produk"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="6dp" />
+
+
+    <Button
+        android:textColor="@color/bsBlack"
+        android:id="@+id/sell_product_image"
+        android:background="@drawable/shape_white"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="6dp" />
+
+    <TextView
+        android:text="Video Tutorial"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="6dp" />
+
+
+    <EditText
+        android:textColor="@color/bsBlack"
+        android:id="@+id/sell_product_video"
+        android:background="@drawable/shape_white"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+
+
+</LinearLayout>

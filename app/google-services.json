@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "649344816184",
+    "firebase_url": "https://techno-238816.firebaseio.com",
+    "project_id": "techno-238816",
+    "storage_bucket": "techno-238816.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:649344816184:android:1a0f8ac97ccd1dc3",
+        "android_client_info": {
+          "package_name": "com.svr.techno"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "649344816184-l1vo4ef6r8k11ngj90gcua96bfoj4hj0.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.svr.techno",
+            "certificate_hash": "b08f94307cb744df5eec02c926790de77a6d8a6b"
+          }
+        },
+        {
+          "client_id": "649344816184-b4u0lt2i0evlld92766ilb66kakq7dmo.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBrJ-ofQSiEzCvqOYYiswsm8C6EFXJ6Bow"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "649344816184-b4u0lt2i0evlld92766ilb66kakq7dmo.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

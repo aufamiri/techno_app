@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context=".SellActivity"
+    tools:showIn="@layout/activity_sell"
+    android:background="@color/bgLight"
+    android:orientation="vertical"
+    >
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <include layout="@layout/content_sell_basic_information"/>
+
+        <include layout="@layout/content_sell_other_information"/>
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="66dp" />
+
+    </LinearLayout>
+
+
+    
+</ScrollView>

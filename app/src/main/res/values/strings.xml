@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">Techno</string>
+    <string name="action_settings">Settings</string>
+    <string name="title_activity_getting_started">GettingStartedActivity</string>
+    <string name="title_activity_home">Beranda</string>
+    <string name="title_activity_login">LoginActivity</string>
+
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="title_activity_test">TestActivity</string>
+    <string name="title_activity_sell">Buat Produk Anda</string>
+</resources>

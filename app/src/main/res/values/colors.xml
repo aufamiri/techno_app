@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#FF0E3B</color>
+    <color name="colorPrimaryDark">#640B1D</color>
+    <color name="colorAccent">#D81B60</color>
+
+    <!-- Background -->
+    <color name="bgGreenLight">#008577</color>
+    <color name="bgRedLight">#E0002B</color>
+    <color name="bgGreenDark">#002C28</color>
+    <color name="bgRedDark">#680024</color>
+
+    <!-- Basic Color -->
+    <color name="bsGrey">#777777</color>
+    <color name="bsWhite">#FFFFFF</color>
+    <color name="bsShadow">#EEEEEE</color>
+    <color name="bsBlack">#000000</color>
+    <color name="bsRed">#FF1744</color>
+    <color name="bsRed2">#80071A</color>
+    <color name="bsTransparent">#00FFF2F2</color>
+    <color name="bsOrange">#FF9100</color>
+
+    <!-- Activer/Passive -->
+    <color name="active1">#FC4409</color>
+    <color name="passive1">#865648</color>
+
+    <!-- Background Color -->
+    <color name="bgLight">#C7C7C7</color>
+
+</resources>

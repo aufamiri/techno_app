@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.appbar.CollapsingToolbarLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    app:layout_scrollFlags="exitUntilCollapsed|scroll"
+    app:contentScrim="@color/bsRed2"
+    app:title="Technopreneurship"
+    app:expandedTitleMarginStart="36dp"
+    app:expandedTitleMarginEnd="36dp"
+    android:background="@drawable/bg_home"
+    android:id="@+id/content_home_category_collapsing_toolbar"
+    android:paddingTop="16dp">
+
+    <androidx.appcompat.widget.Toolbar
+        app:titleTextColor="@color/bsWhite"
+        app:layout_collapseMode="pin"
+        app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
+        android:id="@+id/content_home_toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?android:attr/actionBarSize">
+
+
+
+    </androidx.appcompat.widget.Toolbar>
+
+</com.google.android.material.appbar.CollapsingToolbarLayout>

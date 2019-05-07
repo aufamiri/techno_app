@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".FirstSignInActivity"
+    android:orientation="vertical"
+    android:fitsSystemWindows="true"
+    android:background="@color/bsGrey">
+
+    <LinearLayout
+        android:layout_gravity="center"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+
+        <ImageView
+            android:paddingStart="16dp"
+            android:paddingEnd="16dp"
+            android:paddingTop="36dp"
+            android:paddingBottom="36dp"
+            android:src="@drawable/account_profile_sample"
+            android:background="@drawable/circle_grey"
+            android:id="@+id/first_sign_in_photo"
+            android:layout_gravity="center"
+            android:layout_width="200dp"
+            android:layout_height="200dp" />
+
+        <!--<de.hdodenhof.circleimageview.CircleImageView-->
+            <!--android:layout_gravity="center"-->
+
+            <!--android:layout_width="166dp"-->
+            <!--android:layout_height="166dp"-->
+            <!--android:src="@drawable/account_profile_sample"-->
+            <!--app:civ_border_width="6dp"-->
+            <!--app:civ_border_color="#FF000000"/>-->
+
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="26dp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:paddingStart="16dp">
+            <TextView
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:textColor="@color/bsBlack"
+                android:textSize="19sp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/futura_bold_font"
+                android:text="Nama"/>
+
+            <EditText
+                android:id="@+id/first_sign_in_name"
+                android:layout_marginStart="26dp"
+                android:layout_marginEnd="26dp"
+
+                android:background="@drawable/shape_white"
+                android:textColor="@color/bsBlack"
+                android:textColorHint="@color/bsGrey"
+
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:textSize="14sp"
+                android:importantForAutofill="no" />
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/first_sign_in_fab"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|end"
+        android:layout_margin="@dimen/fab_margin"
+        app:srcCompat="@drawable/ic_check_white_24dp" />
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>
