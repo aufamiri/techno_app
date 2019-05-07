@@ -30,7 +30,7 @@
         <activity android:name=".FirstSignInActivity" />
         <activity
             android:name=".activityDetails"
-            android:theme="@style/NoActionBar" />
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".LoginActivity"
             android:label="@string/title_activity_login"
