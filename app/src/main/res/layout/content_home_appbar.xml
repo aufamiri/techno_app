@@ -5,15 +5,15 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     app:layout_scrollFlags="exitUntilCollapsed|scroll"
     app:contentScrim="@color/bsRed2"
-    app:title="Technopreneurship"
+    app:title="Yur Sayur"
     app:expandedTitleMarginStart="36dp"
     app:expandedTitleMarginEnd="36dp"
-    android:background="@drawable/bg_home"
+    android:background="@drawable/logo"
     android:id="@+id/content_home_category_collapsing_toolbar"
     android:paddingTop="16dp">
 
     <androidx.appcompat.widget.Toolbar
-        app:titleTextColor="@color/bsWhite"
+        app:titleTextColor="@color/bsBlack"
         app:layout_collapseMode="pin"
         app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
         android:id="@+id/content_home_toolbar"

@@ -16,8 +16,8 @@
         android:layout_gravity="center"
         android:gravity="center"
 
-        android:textColor="@color/bsWhite"
+        android:textColor="@color/bsBlack"
         android:textSize="76sp"
-        android:text="technopreneur"/>
+        android:text="Yur Sayur"/>
 
 </FrameLayout>

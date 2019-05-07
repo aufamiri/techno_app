@@ -23,10 +23,11 @@ public class StartActivity extends AppCompatActivity {
 
     void checkUser(FirebaseUser firebaseUser) {
         if (firebaseUser != null) {
-
-            startActivity(new Intent(this, HomeActivity.class));
+            startActivity(new Intent(this, SellActivity.class));
+//            startActivity(new Intent(this, HomeActivity.class));
 
         } else {
+
 
             startActivity(new Intent(this, GettingStartedActivity.class));
 
