@@ -1,6 +1,8 @@
 package com.svr.techno.Adapters.Models;
 
-public class ItemModel {
+import java.io.Serializable;
+
+public class ItemModel implements Serializable {
 
 
     private String category, name, itemId, sellerId, cover, description, uploadDate;

@@ -9,5 +9,6 @@
     <dimen name="card_details">12sp</dimen>
     <dimen name="top_height">200dp</dimen>
     <dimen name="card_width">150dp</dimen>
+    <dimen name="read_more">18dp</dimen>
 
 </resources>

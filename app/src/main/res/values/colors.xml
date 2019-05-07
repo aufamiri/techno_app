@@ -26,5 +26,7 @@
 
     <!-- Background Color -->
     <color name="bgLight">#C7C7C7</color>
+    <color name="grey">#A2A2A2</color>
+    <color name="white">#FFFF</color>
 
 </resources>
