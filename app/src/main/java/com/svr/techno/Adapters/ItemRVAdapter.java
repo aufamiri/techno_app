@@ -1,6 +1,8 @@
 package com.svr.techno.Adapters;
 
 import android.content.Context;
+import android.content.Intent;
+import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,8 +16,10 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.bumptech.glide.Glide;
 import com.svr.techno.Adapters.Models.ItemModel;
 import com.svr.techno.R;
+import com.svr.techno.activityDetails;
 
 import java.util.ArrayList;
+
 
 public class ItemRVAdapter extends RecyclerView.Adapter<ItemRVAdapter.itemRVViewHolder> {
 
@@ -46,7 +50,13 @@ public class ItemRVAdapter extends RecyclerView.Adapter<ItemRVAdapter.itemRVView
         holder.cover.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // Pindah ke fragment detail dengan memasukkan argumen itemModel
+                Intent intent = new Intent(context, activityDetails.class);
+                Bundle bundle = new Bundle();
+
+                bundle.putSerializable("item",itemModel);
+                intent.putExtras(bundle);
+
+                context.startActivity(intent);
             }
         });
 

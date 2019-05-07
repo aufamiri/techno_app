@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true">
+
+    <fragment
+        android:id="@+id/map"
+        android:name="com.google.android.gms.maps.SupportMapFragment"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="10dp"
+        android:layout_marginTop="15dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingVertical="5dp"
+                android:paddingHorizontal="10dp">
+
+                <TextView
+                    android:layout_width="100dp"
+                    android:layout_height="match_parent"
+                    android:text="Tujuan"
+                    android:gravity="center_vertical"
+                    android:textSize="@dimen/place_title"/>
+                <TextView
+                    android:id="@+id/tujuan_address"
+                    android:layout_width="250dp"
+                    android:layout_height="match_parent"
+                    android:text="Alamat Tujuan"
+                    android:textSize="@dimen/place_title" />
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </androidx.cardview.widget.CardView>
+
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/mylocation_fab"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_above="@id/bottom_card"
+        android:layout_margin="16dp"
+        android:src="@drawable/ic_my_location"/>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/bottom_card"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="10dp"
+            android:layout_marginVertical="10dp"
+            android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/maps_page_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textStyle="bold"
+            android:textSize="@dimen/place_title"
+            android:text="Testlkadf fjalksdfja;l dlfjad;l dkjfs kj  kj "/>
+        <Space
+            android:layout_width="wrap_content"
+            android:layout_height="10dp" />
+        <TextView
+            android:id="@+id/maps_page_factory"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/card_title"
+            android:text="Ini hnayalah percobaan sadja"/>
+
+            <Button
+                android:id="@+id/confirm_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="end"
+                android:layout_margin="15dp"
+                android:background="@color/colorPrimary"
+                android:textColor="@color/white"
+                android:text="Rp. 18000"/>
+
+        </LinearLayout>
+
+    </androidx.cardview.widget.CardView>
+
+
+</RelativeLayout>
