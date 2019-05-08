@@ -190,7 +190,7 @@ public class HomeFragment extends Fragment {
 
     private void initCategory() {
 
-        for (int i = 1; i <= 6; i++) {
+        for (int i = 1; i <= 4; i++) {
             CategoryModel xCategoryModel = new CategoryModel();
             String xCategory = null;
 

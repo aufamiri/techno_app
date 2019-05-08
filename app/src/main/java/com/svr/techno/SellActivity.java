@@ -126,6 +126,7 @@ public class SellActivity extends AppCompatActivity implements View.OnTouchListe
 
     private void uploadData() {
 
+        Toast.makeText(SellActivity.this, "Sedang mengupload...", Toast.LENGTH_LONG).show();
         String name = productName.getText().toString().trim();
         int price = Integer.parseInt(productPrice.getText().toString().trim());
         String desc = productDesc.getText().toString().trim();
@@ -147,16 +148,19 @@ public class SellActivity extends AppCompatActivity implements View.OnTouchListe
         String itemId = key;
 
         Map<String, Object> item = new HashMap<>();
-        item.put("itemId", itemId);
-        item.put("sellerId", sellerId);
-        item.put("name", name);
-        item.put("price", price);
-        item.put("description", desc);
-        item.put("uploadDate", uploadDate);
-        item.put("category", category1);
-        item.put("itemSold", 0);
+        item.put("itemId", itemId);//
+        item.put("sellerId", sellerId);//
+        item.put("name", name);//
+        item.put("price", price);//
+        item.put("description", desc);//
+        item.put("uploadDate", uploadDate);//
+        item.put("category", category1);//
+        item.put("itemSold", 0);//
+        item.put("video", tutorial);//
 
         firestoreOperation(item, userReference, 1);
+
+        Toast.makeText(SellActivity.this, "Produk Selesai diupload", Toast.LENGTH_SHORT).show();
 
     }
 

@@ -220,6 +220,7 @@ public class FirstSignInActivity extends AppCompatActivity implements View.OnCli
 
             Map<String, Object> user = new HashMap<>();
             user.put("name", name);
+            user.put("firstlogin", "0");
             firestoreOperation(user, userReference, 1);
 
             startActivity(new Intent(this, HomeActivity.class));

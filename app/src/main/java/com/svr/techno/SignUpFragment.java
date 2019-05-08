@@ -68,7 +68,6 @@ public class SignUpFragment extends Fragment implements View.OnClickListener {
 
                 costumer.setTag(R.drawable.shape_active_1);
                 seller.setTag(R.drawable.shape_passive_1);
-                Toast.makeText(getActivity(), "" + type, Toast.LENGTH_SHORT).show();
 
             }
 
@@ -82,7 +81,6 @@ public class SignUpFragment extends Fragment implements View.OnClickListener {
 
                 seller.setTag(R.drawable.shape_active_1);
                 costumer.setTag(R.drawable.shape_passive_1);
-                Toast.makeText(getActivity(), "" + type, Toast.LENGTH_SHORT).show();
 
             }
 
