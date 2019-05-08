@@ -22,8 +22,6 @@ public class fragmentDetails extends Fragment implements View.OnClickListener {
     private ItemModel itemModel;
     private Button priceButton;
 
-    //TODO: add constructor
-
     @Override
     public void onCreate(@Nullable Bundle savedInstancedState) {
         super.onCreate(savedInstancedState);

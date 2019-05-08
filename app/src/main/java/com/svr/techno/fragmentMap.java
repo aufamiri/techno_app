@@ -43,13 +43,22 @@ import com.google.android.libraries.places.api.net.FindCurrentPlaceRequest;
 import com.google.android.libraries.places.api.net.FindCurrentPlaceResponse;
 import com.google.android.libraries.places.api.net.PlacesClient;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.SetOptions;
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.StorageReference;
 import com.svr.techno.Adapters.Models.ItemModel;
 
 import java.util.Collections;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.Objects;
 
 import static android.Manifest.permission.ACCESS_FINE_LOCATION;
+import static com.android.volley.VolleyLog.TAG;
 
 public class fragmentMap extends Fragment implements OnMapReadyCallback, View.OnClickListener {
 
@@ -63,6 +72,9 @@ public class fragmentMap extends Fragment implements OnMapReadyCallback, View.On
     private TextView locationText;
 
     private ItemModel itemModel;
+
+    private FirebaseAuth authInstance;
+    private FirebaseFirestore firestoreInstance;
 
     private boolean LocationPermissionGranted;
 
@@ -284,6 +296,39 @@ public class fragmentMap extends Fragment implements OnMapReadyCallback, View.On
         }
     }
 
+    public void confirmOrder() {
+            DocumentReference userReference = firestoreInstance.collection("orders").document();
+            String key = userReference.getId();
+            String buyerId = authInstance.getCurrentUser().getUid();
+            String itemId = key;
+
+            Map<String, Object> item = new HashMap<>();
+            item.put("id_item", itemModel.getItemId());
+            item.put("id_seller", itemModel.getSellerId());
+            item.put("id_buyer", buyerId);
+            item.put("confr_seller", 0);
+            item.put("confr_buyer", 0);
+            item.put("date",itemModel.getUploadDate());
+            item.put("coordinat_buyer",origin);
+
+
+        userReference
+                .set(item, SetOptions.merge())
+                .addOnSuccessListener(new OnSuccessListener<Void>() {
+                    @Override
+                    public void onSuccess(Void aVoid) {
+                        //Tampilan sukses
+                    }
+                })
+                .addOnFailureListener(new OnFailureListener() {
+                    @Override
+                    public void onFailure(@NonNull Exception e) {
+                        Log.w(TAG, "Error adding document", e);
+                    }
+                });
+
+    }
+
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
@@ -291,6 +336,7 @@ public class fragmentMap extends Fragment implements OnMapReadyCallback, View.On
                 showNavigation();
                 break;
             case R.id.confirm_button:
+                confirmOrder();
                 break;
         }
     }

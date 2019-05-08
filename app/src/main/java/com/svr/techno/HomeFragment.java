@@ -100,7 +100,8 @@ public class HomeFragment extends Fragment {
                         getActivity().startActivity(intentA);
                         break;
                     case "Transaction History":
-                        test("Next Update");
+                        Intent intentB = new Intent(getActivity(), HistoryActivity.class);
+                        getActivity().startActivity(intentB);
                         break;
                     case  "Favorite":
                         test("Next Update");
