@@ -1,14 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#FF0E3B</color>
-    <color name="colorPrimaryDark">#640B1D</color>
-    <color name="colorAccent">#D81B60</color>
+    <color name="colorPrimary">#48A300</color>
+    <color name="colorPrimaryDark">#397C00</color>
+    <color name="colorAccent">#64A030</color>
 
     <!-- Background -->
     <color name="bgGreenLight">#008577</color>
-    <color name="bgRedLight">#E0002B</color>
+    <color name="bgRedLight">#F50057</color>
     <color name="bgGreenDark">#002C28</color>
     <color name="bgRedDark">#680024</color>
+    <color name="slide2">#272525</color>
 
     <!-- Basic Color -->
     <color name="bsGrey">#777777</color>

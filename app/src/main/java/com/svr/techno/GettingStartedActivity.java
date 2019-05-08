@@ -21,18 +21,16 @@ public class GettingStartedActivity extends AppIntro2 {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        String desk1 = "Slide 1";
-        String desk2 = "Slide 2";
-        String desk3 = "Slide 3";
+        String desk1 = "";
+        String desk2 = "";
 
-        addSlide(AppIntro2Fragment.newInstance("IT'S FREE!", desk1, R.drawable.gettingstarteds1, R.color.bgGreenLight));
-        addSlide(AppIntro2Fragment.newInstance("REALIZE YOUR DREAM!", desk2, R.drawable.gettingstarteds2, R.color.bgGreenDark));
-        addSlide(AppIntro2Fragment.newInstance("ENJOY!", desk3, R.drawable.gettingstarteds3, R.color.bgRedLight));
+        addSlide(AppIntro2Fragment.newInstance("", desk1, R.drawable.logo, getResources().getColor(R.color.bsWhite)));
+        addSlide(AppIntro2Fragment.newInstance("", desk2, R.drawable.slide1, getResources().getColor(R.color.slide2)));
 
         showSkipButton(false);
         showStatusBar(false);
         setFadeAnimation();
-        askForPermissions(new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE, Manifest.permission.READ_EXTERNAL_STORAGE, Manifest.permission.CAMERA}, 3);
+        askForPermissions(new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE, Manifest.permission.READ_EXTERNAL_STORAGE, Manifest.permission.CAMERA, Manifest.permission.ACCESS_FINE_LOCATION, Manifest.permission.ACCESS_LOCATION_EXTRA_COMMANDS}, 2);
 
     }
 

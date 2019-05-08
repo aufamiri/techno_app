@@ -53,7 +53,7 @@ public class CategoryRVAdapter extends RecyclerView.Adapter<CategoryRVAdapter.Ca
         holder.moreItem.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(context, categoryModel.getTitle(), Toast.LENGTH_SHORT).show();
+
             }
         });
     }

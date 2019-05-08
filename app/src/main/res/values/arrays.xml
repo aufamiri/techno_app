@@ -2,7 +2,9 @@
 <resources>
     <string-array name="sell_product_category1">
         <item>------------</item>
-        <item>Makanan</item>
-        <item>Minuman</item>
+        <item>Sayur Sop</item>
+        <item>Sayur Capcay</item>
+        <item>Sayur Kangkung</item>
+        <item>Ala carte</item>
     </string-array>
 </resources>

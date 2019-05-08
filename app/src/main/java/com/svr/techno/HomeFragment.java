@@ -1,9 +1,13 @@
 package com.svr.techno;
 
+import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
+import android.widget.GridView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -14,18 +18,34 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.CollectionReference;
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.Query;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
 import com.svr.techno.Adapters.CategoryRVAdapter;
+import com.svr.techno.Adapters.MainMenuAdapter;
 import com.svr.techno.Adapters.Models.CategoryModel;
 import com.svr.techno.Adapters.Models.ItemModel;
 
 import java.util.ArrayList;
 
 public class HomeFragment extends Fragment {
+
+    Long userType;
+    Context context;
+    String[] titles;
+    int[] images;
+
+    public HomeFragment(Context context) {
+        this.context = context;
+    }
+
+    GridView mainMenu;
+    MainMenuAdapter mainMenuAdapter;
 
     public View view;
     public RecyclerView categoryRV;
@@ -35,6 +55,7 @@ public class HomeFragment extends Fragment {
     ArrayList<ItemModel> itemModels;
 
     FirebaseFirestore firestoreInstance;
+    FirebaseAuth authInstance;
 
     private void test(String input) {
         Toast.makeText(getActivity(), input, Toast.LENGTH_SHORT).show();
@@ -60,12 +81,44 @@ public class HomeFragment extends Fragment {
 
         firestoreInstance = FirebaseFirestore.getInstance();
 
+        authInstance = FirebaseAuth.getInstance();
+
         initItem();
+
+        mainMenu = view.findViewById(R.id.content_home_gridview);
+        checkUserType();
+
+        mainMenu.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                switch (titles[position]) {
+
+                    case "Account":
+                        authInstance
+                                .signOut();
+                        Intent intentA = new Intent(getActivity(), LoginActivity.class);
+                        getActivity().startActivity(intentA);
+                        break;
+                    case "Transaction History":
+                        test("Next Update");
+                        break;
+                    case  "Favorite":
+                        test("Next Update");
+                        break;
+                    case  "Create Product":
+                        Intent intent = new Intent(getActivity(), SellActivity.class);
+                        getActivity().startActivity(intent);
+                        break;
+
+                }
+            }
+        });
 
         return view;
     }
 
     private void initItem() {
+
         CollectionReference collectionReference = firestoreInstance.collection("items");
 
         collectionReference
@@ -90,39 +143,47 @@ public class HomeFragment extends Fragment {
                 });
     }
 
-    private void initHome() {
-        for (int i = 1; i <= 2; i++) {
-            String category = null;
-            CategoryModel categoryModel = new CategoryModel();
+    private void checkUserType() {
 
-            switch (i) {
-                case 1:
-                    category = "Makanan";
-                    break;
-                case 2:
-                    category = "Minuman";
-                    break;
-            }
-            categoryModel.setTitle(category);
+        String uid = authInstance.getCurrentUser().getUid();
+        DocumentReference docRef = firestoreInstance.collection("users").document(uid);
+        docRef.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
+            @Override
+            public void onComplete(@NonNull Task<DocumentSnapshot> task) {
+                if (task.isSuccessful()) {
+                    DocumentSnapshot document = task.getResult();
+                    if (document.exists()) {
 
-            ArrayList<ItemModel> pItemModels = new ArrayList<>();
+                        userType = (Long) document.get("type");
+//                        Log.d(TAG, "DocumentSnapshot data: " + document.getData());
+                    } else {
+//                        Log.d(TAG, "No such document");
+                    }
 
-            for (ItemModel item : itemModels) {
-
-                if (item.getCategory().equals(categoryModel.getTitle())) {
-
-                    //test(item.getName());
-                    pItemModels.add(item);
+                    initMainMenu();
+                } else {
+//                    Log.d(TAG, "get failed with ", task.getException());
                 }
-
-                initCategory();
             }
+        });
 
-            categoryModel.setItemModels(pItemModels);
-            categoryModels.add(categoryModel);
-            test(String.valueOf(pItemModels.size()));
-            categoryRVAdapter.notifyDataSetChanged();
+    }
+
+    private void initMainMenu() {
+
+        if (userType == 0) {
+            titles = new String[]{"Account", "Transaction History", "Favorite"};
+            images = new int[]{R.drawable.accounts, R.drawable.bills, R.drawable.favorites};
+        } else if (userType == 1) {
+            titles = new String[]{"Account", "Transaction History", "Create Product"};
+            images = new int[]{R.drawable.accounts, R.drawable.bills, R.drawable.adds};
         }
+
+
+
+
+        mainMenuAdapter = new MainMenuAdapter(context, titles, images);
+        mainMenu.setAdapter(mainMenuAdapter);
 
     }
 
@@ -135,22 +196,16 @@ public class HomeFragment extends Fragment {
             switch (i) {
 
                 case 1:
-                    xCategory = "Makanan";
+                    xCategory = "Sayur Sop";
                     break;
                 case 2:
-                    xCategory = "Minuman";
+                    xCategory = "Sayur Capcay";
                     break;
                 case 3:
-                    xCategory = "Kategori 3";
+                    xCategory = "Sayur Kangkung";
                     break;
                 case 4:
-                    xCategory = "Kategori 4";
-                    break;
-                case 5:
-                    xCategory = "Kategori 5";
-                    break;
-                case 6:
-                    xCategory = "Kategori 6";
+                    xCategory = "Ala carte";
                     break;
 
             }
@@ -179,48 +234,4 @@ public class HomeFragment extends Fragment {
 
     }
 
-    private void initData() {
-
-
-        for (int i = 1; i <= 2; i++) {
-            String category = null;
-            CategoryModel categoryModel = new CategoryModel();
-
-            switch (i) {
-                case 1:
-                    category = "Makanan";
-                    break;
-                case 2:
-                    category = "Minuman";
-                    break;
-            }
-
-            categoryModel.setTitle(category);
-
-            CollectionReference collectionReference = firestoreInstance.collection("items");
-            Query query = collectionReference.whereEqualTo("category", category);
-
-            query
-                    .get()
-                    .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
-                        @Override
-                        public void onComplete(@NonNull Task<QuerySnapshot> task) {
-                            if (task.isSuccessful()) {
-
-                                for (QueryDocumentSnapshot queryDocumentSnapshot : task.getResult()) {
-
-                                    ItemModel itemModel = queryDocumentSnapshot.toObject(ItemModel.class);
-                                    itemModels.add(itemModel);
-                                }
-
-                            }
-                        }
-                    });
-
-            categoryModel.setItemModels(itemModels);
-            categoryModels.add(categoryModel);
-
-            categoryRVAdapter.notifyDataSetChanged();
-        }
-    }
 }

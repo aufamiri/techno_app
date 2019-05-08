@@ -116,10 +116,10 @@ public class SignInFragment extends Fragment implements View.OnClickListener {
 
                                                         Toast.makeText(getActivity(), "T", Toast.LENGTH_SHORT).show();
                                                         if (documentSnapshot.getString("firstlogin").equals("1")) {
-                                                            Toast.makeText(getActivity(), "T1", Toast.LENGTH_SHORT).show();
+//                                                            Toast.makeText(getActivity(), "T1", Toast.LENGTH_SHORT).show();
                                                             startActivity(new Intent(getActivity(), FirstSignInActivity.class));
                                                         } else {
-                                                            Toast.makeText(getActivity(), "T2", Toast.LENGTH_SHORT).show();
+//                                                            Toast.makeText(getActivity(), "T2", Toast.LENGTH_SHORT).show();
                                                             startActivity(new Intent(getActivity(), HomeActivity.class));
                                                         }
                                                     }

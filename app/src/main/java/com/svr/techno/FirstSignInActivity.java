@@ -268,9 +268,6 @@ public class FirstSignInActivity extends AppCompatActivity implements View.OnCli
                 .load(resourceId)
                 .apply(RequestOptions.circleCropTransform())
                 .into(place);
-//                .load(url)
-//                .apply(RequestOptions.circleCropTransform())
-//                .into(imageView);
     }
 
     @Override
