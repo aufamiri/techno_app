@@ -1,5 +1,6 @@
 package com.svr.techno;
 
+import android.content.Intent;
 import android.content.IntentSender;
 import android.content.pm.PackageManager;
 import android.location.Location;
@@ -10,6 +11,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -34,8 +36,10 @@ import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
+import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.android.gms.tasks.Task;
 import com.google.android.libraries.places.api.Places;
 import com.google.android.libraries.places.api.model.Place;
 import com.google.android.libraries.places.api.model.PlaceLikelihood;
@@ -45,6 +49,7 @@ import com.google.android.libraries.places.api.net.PlacesClient;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.SetOptions;
 import com.google.firebase.storage.FirebaseStorage;
@@ -70,6 +75,7 @@ public class fragmentMap extends Fragment implements OnMapReadyCallback, View.On
     private PlacesClient placesClient;
 
     private TextView locationText;
+    private Long userType;
 
     private ItemModel itemModel;
 
@@ -87,6 +93,10 @@ public class fragmentMap extends Fragment implements OnMapReadyCallback, View.On
         if (getArguments() != null) {
             itemModel = (ItemModel) getArguments().getSerializable("item");
         }
+
+        authInstance = FirebaseAuth.getInstance();
+        firestoreInstance = FirebaseFirestore.getInstance();
+
     }
 
     @Override
@@ -296,6 +306,34 @@ public class fragmentMap extends Fragment implements OnMapReadyCallback, View.On
         }
     }
 
+    private void checkUserType() {
+
+        String uid = authInstance.getCurrentUser().getUid();
+        DocumentReference docRef = firestoreInstance.collection("users").document(uid);
+        docRef.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
+            @Override
+            public void onComplete(@NonNull Task<DocumentSnapshot> task) {
+                if (task.isSuccessful()) {
+                    DocumentSnapshot document = task.getResult();
+                    if (document.exists()) {
+
+                        userType = (Long) document.get("type");
+                        if (userType == 0){
+                            confirmOrder();
+                        }
+//                        Log.d(TAG, "DocumentSnapshot data: " + document.getData());
+                    } else {
+//                        Log.d(TAG, "No such document");
+                    }
+                } else {
+//                    Log.d(TAG, "get failed with ", task.getException());
+                }
+            }
+        });
+
+    }
+
+
     public void confirmOrder() {
             DocumentReference userReference = firestoreInstance.collection("orders").document();
             String key = userReference.getId();
@@ -311,13 +349,16 @@ public class fragmentMap extends Fragment implements OnMapReadyCallback, View.On
             item.put("date",itemModel.getUploadDate());
             item.put("coordinat_buyer",origin);
 
+            Log.i("TEST","FINISIH LAINE");
+
 
         userReference
                 .set(item, SetOptions.merge())
                 .addOnSuccessListener(new OnSuccessListener<Void>() {
                     @Override
                     public void onSuccess(Void aVoid) {
-                        //Tampilan sukses
+                        Intent intentA = new Intent(getActivity(), HistoryActivity.class);
+                        getActivity().startActivity(intentA);
                     }
                 })
                 .addOnFailureListener(new OnFailureListener() {
@@ -336,7 +377,7 @@ public class fragmentMap extends Fragment implements OnMapReadyCallback, View.On
                 showNavigation();
                 break;
             case R.id.confirm_button:
-                confirmOrder();
+                checkUserType();
                 break;
         }
     }

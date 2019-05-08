@@ -39,7 +39,7 @@ public class fragmentYoutube extends Fragment {
         detailsText.setText(itemModel.getDescription());
 
         youtubePlayer = view.findViewById(R.id.youtube_view);
-        initYoutubePlayer();
+        //initYoutubePlayer();
         return view;
     }
 
@@ -56,7 +56,6 @@ public class fragmentYoutube extends Fragment {
         }
     }
 */
-
 //TODO: ipmlement onBackPressed on fragment
     private void initYoutubePlayer() {
         getLifecycle().addObserver(youtubePlayer);

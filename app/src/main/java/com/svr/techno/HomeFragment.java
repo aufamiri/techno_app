@@ -61,6 +61,14 @@ public class HomeFragment extends Fragment {
         Toast.makeText(getActivity(), input, Toast.LENGTH_SHORT).show();
     }
 
+    @Override
+    public void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+
+        authInstance = FirebaseAuth.getInstance();
+        firestoreInstance = FirebaseFirestore.getInstance();
+    }
+
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -145,7 +153,6 @@ public class HomeFragment extends Fragment {
     }
 
     private void checkUserType() {
-
         String uid = authInstance.getCurrentUser().getUid();
         DocumentReference docRef = firestoreInstance.collection("users").document(uid);
         docRef.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
