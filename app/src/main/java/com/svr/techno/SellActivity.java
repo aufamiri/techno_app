@@ -176,6 +176,11 @@ public class SellActivity extends AppCompatActivity implements View.OnTouchListe
 
     private void firestoreOperation(Map<String, Object> input, DocumentReference documentReference, int type) {
 
+        // Keterangan :
+        /// input = data yang akan diupload
+        /// documentReference = untuk referensi/tempat penyimpanan
+        /// type = metode upload
+
         switch (type) {
             case 0: // Set
 
@@ -316,8 +321,10 @@ public class SellActivity extends AppCompatActivity implements View.OnTouchListe
 
         List<String> categoryList = new ArrayList<>();
         categoryList.add("--------");
-        categoryList.add("Makanan");
-        categoryList.add("Minuman");
+        categoryList.add("Sayur Sop");
+        categoryList.add("Sayur Capcay");
+        categoryList.add("Sayur Kangkung");
+        categoryList.add("Ala carte");
 
         ArrayAdapter<String> productCategory1Adapter = new ArrayAdapter<>(SellActivity.this, R.layout.support_simple_spinner_dropdown_item, categoryList);
         productCategory1Adapter.setDropDownViewResource(R.layout.support_simple_spinner_dropdown_item);

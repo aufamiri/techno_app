@@ -7,7 +7,7 @@
     tools:context=".FirstSignInActivity"
     android:orientation="vertical"
     android:fitsSystemWindows="true"
-    android:background="@color/bsGrey">
+    android:background="@color/bsWhite">
 
     <LinearLayout
         android:layout_gravity="center"
@@ -17,26 +17,16 @@
 
 
         <ImageView
-            android:paddingStart="16dp"
-            android:paddingEnd="16dp"
-            android:paddingTop="36dp"
-            android:paddingBottom="36dp"
-            android:src="@drawable/account_profile_sample"
+            android:paddingStart="26dp"
+            android:paddingEnd="26dp"
+            android:paddingTop="26dp"
+            android:paddingBottom="26dp"
+            android:src="@drawable/accounts"
             android:background="@drawable/circle_grey"
             android:id="@+id/first_sign_in_photo"
             android:layout_gravity="center"
             android:layout_width="200dp"
             android:layout_height="200dp" />
-
-        <!--<de.hdodenhof.circleimageview.CircleImageView-->
-            <!--android:layout_gravity="center"-->
-
-            <!--android:layout_width="166dp"-->
-            <!--android:layout_height="166dp"-->
-            <!--android:src="@drawable/account_profile_sample"-->
-            <!--app:civ_border_width="6dp"-->
-            <!--app:civ_border_color="#FF000000"/>-->
-
 
         <Space
             android:layout_width="match_parent"

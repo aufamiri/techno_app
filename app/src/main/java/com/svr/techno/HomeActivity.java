@@ -23,7 +23,7 @@ public class HomeActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
         //will hide the title
 
-        fragmentChanger(new HomeFragment());
+        fragmentChanger(new HomeFragment(getApplicationContext()));
     }
 
     public void fragmentChanger (Fragment fragment) {

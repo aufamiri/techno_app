@@ -6,7 +6,7 @@
 
     <!-- Background -->
     <color name="bgGreenLight">#008577</color>
-    <color name="bgRedLight">#E0002B</color>
+    <color name="bgRedLight">#F50057</color>
     <color name="bgGreenDark">#002C28</color>
     <color name="bgRedDark">#680024</color>
     <color name="slide2">#272525</color>

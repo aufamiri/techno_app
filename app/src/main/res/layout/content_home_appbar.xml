@@ -13,6 +13,7 @@
     android:paddingTop="16dp">
 
     <androidx.appcompat.widget.Toolbar
+        app:subtitleTextColor="@color/bsBlack"
         app:titleTextColor="@color/bsBlack"
         app:layout_collapseMode="pin"
         app:popupTheme="@style/ThemeOverlay.AppCompat.Light"

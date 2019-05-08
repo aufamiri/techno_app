@@ -55,24 +55,6 @@
         android:layout_width="match_parent"
         android:layout_height="6dp" />
 
-    <EditText
-        android:textColor="@color/bsBlack"
-        android:id="@+id/sell_product_category2"
-        android:background="@drawable/shape_white"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
-
-    <Space
-        android:layout_width="match_parent"
-        android:layout_height="6dp" />
-
-    <EditText
-        android:textColor="@color/bsBlack"
-        android:id="@+id/sell_product_category3"
-        android:background="@drawable/shape_white"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
-
     <Space
         android:layout_width="match_parent"
         android:layout_height="16dp" />
